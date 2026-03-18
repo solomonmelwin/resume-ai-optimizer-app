@@ -10,7 +10,8 @@ from reportlab.lib.styles import getSampleStyleSheet
 
 # ---------------- LOAD API ----------------
 load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+api_key = st.secrets.get("OPENAI_API_KEY") or os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=api_key)
 
 st.title("📄 AI Resume Improver 🚀")
 
